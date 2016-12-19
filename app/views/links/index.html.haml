@@ -1,0 +1,21 @@
+:ruby
+  @last_short_key ||= session[:short_key]
+
+.link
+  %p.title SHORT LINK MAKER
+  = form_for @link, url: { action: 'create' }, html: {class: 'link-form'} do |f|
+    - if @link.errors.any?
+      - @link.errors.each do |field, message|
+        .error= message
+    = f.text_field :user_url, placeholder: 'Your original URL here'
+    = f.submit 'Make Short'
+
+  - if @last_short_key.present?
+    - if flash[:notice]
+      .short-link.new
+        = flash[:notice]
+        = render 'link'
+    - else
+      .short-link.previous
+        Your previous link:
+        = render 'link'
