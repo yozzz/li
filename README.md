@@ -1,5 +1,7 @@
 Little Links
 
 Run:
-bundle install
-rake db:create db:migrate
+<br />
+`bundle install`
+<br />
+`rake db:create db:migrate`
