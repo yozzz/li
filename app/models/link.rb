@@ -1,6 +1,6 @@
 class Link < ApplicationRecord
 
-  # Short link key will start from 4 charachters
+  # Short link key will start from 4 charachters + 1 additional random key
   START_NUM = 200000
 
   validates :user_url, format: { with: URI::regexp, message: "Oops, looks like you put bad URL" }
